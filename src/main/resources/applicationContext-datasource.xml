@@ -16,15 +16,15 @@
 
     <!--加载properties配置文件-->
     <bean id="porpertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations">
-            <list>
-                <value>classpath:dataSource.properties</value>
-            </list>
-        </property>
-        <property name="fileEncoding" value="utf-8" />
-        <property name="order" value="2" />
-        <property name="ignoreUnresolvablePlaceholders" value="true" />
-    </bean>
+    <property name="locations">
+        <list>
+            <value>classpath:dataSource.properties</value>
+        </list>
+    </property>
+    <property name="fileEncoding" value="utf-8" />
+    <property name="order" value="2" />
+    <property name="ignoreUnresolvablePlaceholders" value="true" />
+</bean>
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="${db.driverClassName}" />

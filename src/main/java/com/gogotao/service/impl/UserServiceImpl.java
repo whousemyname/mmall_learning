@@ -1,10 +1,11 @@
-package com.gogotao.service;
+package com.gogotao.service.impl;
 
 import com.gogotao.common.Const;
 import com.gogotao.common.ServerResponse;
 import com.gogotao.common.TokenCache;
 import com.gogotao.dao.UserMapper;
 import com.gogotao.pojo.User;
+import com.gogotao.service.IUserService;
 import com.gogotao.utils.MD5Util;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import java.util.UUID;
 
 
 @Service("iUserService")
-public class UserServiceImpl implements IUserService{
+public class UserServiceImpl implements IUserService {
     @Autowired
     private UserMapper userMapper;
 

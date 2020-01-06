@@ -2,6 +2,7 @@ package com.gogotao.service;
 
 import com.gogotao.common.ServerResponse;
 import com.gogotao.pojo.User;
+import net.sf.jsqlparser.schema.Server;
 
 public interface IUserService {
 
@@ -14,4 +15,12 @@ public interface IUserService {
    ServerResponse<String> selectQuestion(String username);
 
    ServerResponse<String> checkAnswer(String username, String question, String answer);
+
+   ServerResponse<String> forgetResetPassword(String username, String passwordNew, String forgetToken);
+
+   ServerResponse<String> resetPassword(String passwordOld, String passwordNew, User user);
+
+   ServerResponse<User> updateInformation(User user);
+
+   ServerResponse<User> getInformation(Integer userId);
 }

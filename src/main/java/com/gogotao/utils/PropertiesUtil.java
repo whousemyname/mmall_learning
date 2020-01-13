@@ -13,7 +13,7 @@ import java.util.Properties;
  */
 public class PropertiesUtil {
 
-    private static Logger logger = LoggerFactory.getLogger(PropertiesUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(PropertiesUtil.class);
 
     private static Properties props;
 

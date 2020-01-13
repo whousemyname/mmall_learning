@@ -1,16 +1,18 @@
 package com.gogotao.service.impl;
 
 import com.gogotao.service.IFileService;
-import org.apache.ibatis.annotations.Update;
+import com.gogotao.utils.FtpUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.File;
 import java.io.IOException;
-import java.lang.management.GarbageCollectorMXBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
+@Service("iFileService")
 public class FileServiceImpl implements IFileService {
     private Logger logger = LoggerFactory.getLogger(FileServiceImpl.class);
 
@@ -28,11 +30,12 @@ public class FileServiceImpl implements IFileService {
         File targetFile = new File(fileDir, uploadFileName);
         try {
             file.transferTo(targetFile);
-
-            //todo 将targetFile上传到FTP服务器上
-
-            //todo 上传完之后删除upload下的文件
-
+            List<File> fileList = new ArrayList<>();
+            fileList.add(targetFile);
+            if (!FtpUtils.uploadFile(fileList)){
+                return null;
+            }
+            targetFile.delete();
         } catch (IOException e) {
             logger.error("上传文件失败", e);
             return null;

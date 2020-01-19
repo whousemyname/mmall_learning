@@ -271,7 +271,7 @@
           <encoding>UTF-8</encoding>
           <compilerArguments>
             <extdirs>${project.basedir}/src/main/webapp/WEB-INF/lib</extdirs>
-          </compilerArguments>
+          </compilerArguments>    
         </configuration>
       </plugin>
     </plugins>

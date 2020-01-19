@@ -6,7 +6,6 @@ import com.gogotao.common.ServerResponse;
 import com.gogotao.dao.ShippingMapper;
 import com.gogotao.pojo.Shipping;
 import com.gogotao.service.IShippingService;
-import com.sun.xml.internal.ws.server.ServerRtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -6,10 +6,11 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 import java.util.Date;
+import java.util.Locale;
 
 public class DateTimeUtils {
 
-    private static final String STANDBY_PATTERN = "yyyy-MM-dd HH-mm-SS";
+    private static final String STANDBY_PATTERN = "yyyy-MM-dd HH:mm:ss";
 
     public static Date strToDate(String dateStr, String pattern){
         DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(pattern);

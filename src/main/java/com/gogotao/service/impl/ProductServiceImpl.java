@@ -157,13 +157,14 @@ public class ProductServiceImpl implements IProductService {
         if (StringUtils.isNotBlank(productName)){
             productName = new StringBuilder().append("%").append(productName).append("%").toString();
         }
-        PageHelper.startPage(pageNum, pageSize);
+
         if (StringUtils.isNotBlank(orderBy)){
             if (Const.ProductListOrderBy.PRICE_ASC_DESC.contains(orderBy)){
                 String[] strs = orderBy.split("_");
                 PageHelper.orderBy(strs[0] + " " + strs[1]);
             }
         }
+        PageHelper.startPage(pageNum, pageSize);
         List<Product> productList = productMapper.selectByNameAndCategoryIds(StringUtils.isBlank(productName)? null : productName,
                                                                              categoryIdList.size()==0? null : categoryIdList);
         List<ProductListVo> listVos = new ArrayList<>(productList.size());
@@ -190,10 +191,10 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public ServerResponse<PageInfo> searchProduct(Integer productId, String productName, Integer pageNum, Integer pageSize){
-        PageHelper.startPage(pageNum, pageSize);
         if (StringUtils.isNotBlank(productName)){
            productName = new StringBuilder().append("%").append(productName).append("%").toString();
         }
+        PageHelper.startPage(pageNum, pageSize);
         List<Product> list = productMapper.selectByNameAndId(productId, productName);
         List<ProductListVo> listVos = new ArrayList<>(list.size());
         for (Product productItem : list){

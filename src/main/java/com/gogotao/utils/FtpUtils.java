@@ -13,7 +13,7 @@ public class FtpUtils {
     private static String ftpIp = PropertiesUtil.getProperty("ftp.server.ip");
     private static String ftpUsername = PropertiesUtil.getProperty("ftp.username");
     private static String ftpPassword= PropertiesUtil.getProperty("ftp.password");
-        private static FTPClient ftpClient;
+    private static FTPClient ftpClient;
 
     public static boolean uploadFile(List<File> fileList) throws IOException{
         logger.info("开始连接ftp服务器");

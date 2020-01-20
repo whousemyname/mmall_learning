@@ -113,7 +113,9 @@ public class ProductManageController {
 
     @RequestMapping(value = "upload.do")
     @ResponseBody
-    public ServerResponse<Map<String, String>> upload(HttpSession session, @RequestParam(value = "uploadFile", required = false)MultipartFile file, HttpServletRequest request){
+    public ServerResponse<Map<String, String>> upload(HttpSession session,
+                                                      @RequestParam(value = "uploadFile", required = false)MultipartFile file,
+                                                      HttpServletRequest request){
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if (user == null){
             return ServerResponse.createByErrorCode(ResponseCode.NEED_LOGIN.getCode(), "用户没有登录");

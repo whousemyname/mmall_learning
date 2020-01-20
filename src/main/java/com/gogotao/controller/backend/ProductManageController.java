@@ -126,7 +126,7 @@ public class ProductManageController {
         }
         String path = request.getSession().getServletContext().getRealPath("/upload");
         String targetName = iFileService.upload(file, path);
-        if (StringUtils.isNotBlank(targetName)){
+        if (StringUtils.isBlank(targetName)){
             return ServerResponse.createByErrorMessage("上传文件失败");
         }
         String url = PropertiesUtil.getProperty("ftp.server.http.prefix") + targetName;

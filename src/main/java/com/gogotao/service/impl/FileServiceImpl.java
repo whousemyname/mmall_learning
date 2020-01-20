@@ -33,9 +33,9 @@ public class FileServiceImpl implements IFileService {
             List<File> fileList = new ArrayList<>();
             fileList.add(targetFile);
             if (!FtpUtils.uploadFile(fileList)){
+                targetFile.delete();
                 return null;
             }
-            targetFile.delete();
         } catch (IOException e) {
             logger.error("上传文件失败", e);
             return null;
